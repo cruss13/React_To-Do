@@ -33,6 +33,12 @@ class App extends Component {
     this.setState({ todos: todos });
 }
 
+  deleteTodo(e) {
+    const newList = this.state.todos.filter(e.button.isClicked: false);
+    this.setState({ todos: [...this.state.todos, newList]})
+
+  }
+
   render() {
     return (
       <div className="App">
