@@ -33,19 +33,18 @@ class App extends Component {
     this.setState({ todos: todos });
 }
 
-  deleteTodo() {
-    this.state.todos.deleted = true;
-    const newArr = this.state.todos.filter( todos => todos.deleted === false);
+  deleteTodo(id) {
+    const newArr = this.state.todos.filter( todos => todos.id != id);
     this.setState({ todos: newArr});
-    console.log ('newArr');
+    console.log (newArr);
   }
 
   render() {
     return (
       <div className="App">
         <ul>
-          { this.state.todos.map( (todo, index, items) =>
-            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index)} />
+          { this.state.todos.map( (todo, index, id) =>
+            <ToDo key={ index } id={todo.id} deleteTodo={this.deleteTodo.bind(this)} description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index)} />
           )}
         </ul>
         <form onSubmit= { (e) => this.handleSubmit(e) }>

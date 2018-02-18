@@ -6,7 +6,7 @@
         <li>
           <input type="checkbox" checked={ this.props.isCompleted } onChange={ this.props.toggleComplete } />
           <span>{ this.props.description }</span>
-          <button onClick= {this.deleteTodo.bind (this)} >DELETE</button>
+          <button onClick={ () => {this.props.deleteTodo(this.props.id)}} onChange= {this.props.deleteTodo }>DELETE</button>
         </li>
      );
    }
