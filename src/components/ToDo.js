@@ -1,15 +1,25 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 
- class ToDo extends Component {
-   render() {
-     return (
-        <li>
-          <input type="checkbox" checked={ this.props.isCompleted } onChange={ this.props.toggleComplete } />
-          <span>{ this.props.description }</span>
-          <button onClick={ () => {this.props.deleteTodo(this.props.deleted)}} onChange= {this.props.deleteTodo }>DELETE</button>
-        </li>
-     );
-   }
- }
+class ToDo extends Component {
+  deleteToDo(description) {
+      this.props.deleteToDo(description);
+    }
+      render() {
+        return (
+          <div className="wrapper">
 
- export default ToDo;
+          <button className="deleteToDo" onClick = {(e) =>
+              this.deleteToDo(this.props.description)}>Delete</button>
+              {() => this.props.deleteToDo(this.props.description)}
+
+          <li>
+            <input type="checkbox" checked={ this.props.isCompleted }
+    onChange={ this.props.toggleComplete } />
+            <span>{ this.props.description }</span>
+          </li>
+          </div>
+        );
+      }
+    }
+
+export default ToDo;
