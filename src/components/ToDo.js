@@ -3,11 +3,12 @@
  class ToDo extends Component {
   render() {
     return (
-      <li>
-        <input type="checkbox" checked={ this.props.isCompleted } onChange={ this.props.toggleComplete } />
-        <button>DELETE</button>
-        <span>{ this.props.description }</span>
-      </li>
+      const Todo = ({ description, id, isCompleted, toggleComplete, onDelete }) =>
+        <li>
+          <input type="checkbox" checked={isCompleted} onChange={toggleComplete} />
+          <button onClick={() => onDelete(id)}>DELETE</button>
+          <span>{description}</span>
+        </li>
     );
   }
 }
