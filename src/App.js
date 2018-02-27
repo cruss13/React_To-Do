@@ -3,13 +3,13 @@ import './App.css';
 import ToDo from './components/ToDo.js';
 
 class App extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       todos: [
         { description: 'Walk the cat', isCompleted: true },
-        { description: 'Throw the dishes away', isCompleted: false},
-        { description: 'Buy new dishes', isCompleted: false}
+        { description: 'Throw the dishes away', isCompleted: false },
+        { description: 'Buy new dishes', isCompleted: false }
       ],
       newTodoDescription: ''
     };
@@ -29,9 +29,13 @@ class App extends Component {
   toggleComplete(index) {
     const todos = this.state.todos.slice();
     const todo = todos[index];
-    todo.isCompleted = todos.isCompleted ? false : true;
+    todo.isCompleted = todo.isCompleted ? false : true;
     this.setState({ todos: todos });
-}
+  }
+
+  deleteTodo() {
+    
+  }
 
   render() {
     return (
@@ -41,8 +45,8 @@ class App extends Component {
             <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
           )}
         </ul>
-        <form onSubmit= { (e) => this.handleSubmit(e) }>
-          <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) }/>
+        <form onSubmit={ (e) => this.handleSubmit(e) }>
+          <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
           <input type="submit" />
         </form>
       </div>
