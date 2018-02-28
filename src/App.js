@@ -34,14 +34,11 @@ class App extends Component {
   }
 
   deleteTodo(index) {
-  //this.setState((prevState) => ({
-    //items: prevState.items.filter(item => item.id !== id),
-  //}));
-  const todos = this.state.todos.slice();
-  const todo = todos[index];
-  const newTodo = this.state.todos.filter(element => element !== todo);
-  this.setState({todos: newTodo});
-}
+    const todos = this.state.todos.slice();
+    const todo = todos[index];
+    const newTodo = this.state.todos.filter(element => element !== todo);
+    this.setState({todos: newTodo});
+  }
 
   render() {
     return (
